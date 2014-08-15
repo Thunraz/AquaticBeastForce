@@ -117,19 +117,23 @@ function Camera(canvas, scale) {
     this.width = canvas.width;
     this.height = canvas.height;
     this.scale = scale;
-}
-
-Camera.prototype.render = function(player) {
-    // Clear the frame
-    this.ctx.clearRect(0, 0, this.width, this.height);
 
     // Don't smooth images when scaling up
     this.ctx.imageSmoothingEnabled = false;
-    
-    this.draw(player.bitmap.image, player.x, player.y, player.bitmap.currentFrame, player.direction);
+}
+
+Camera.prototype.render = function(entities) {
+    // Clear the frame
+    this.ctx.clearRect(0, 0, this.width, this.height);
+
+    // Draw all entities
+    var that = this;
+    entities.forEach(function(entity) {
+        that.draw(entity.bitmap, entity.x, entity.y, entity.direction);
+    });
 };
 
-Camera.prototype.draw = function(image, xPos, yPos, currentFrame, rotation) {
+Camera.prototype.draw = function(bitmap, xPos, yPos, rotation) {
     this.ctx.save();
 
     // Move to the sprite's center
@@ -160,13 +164,14 @@ Camera.prototype.draw = function(image, xPos, yPos, currentFrame, rotation) {
 
 var canvas = document.getElementById('g');
 var controls = new Controls();
-var player = new Player(0, 0);
+var player = new Player(32, 32);
 var camera = new Camera(canvas, 3.0);
+var entities = [player];
 
 var loop = new GameLoop();
 
 loop.start(function frame(deltaT) {
     player.update(controls.states, deltaT);
 
-    camera.render(player);
+    camera.render(entities);
 });
