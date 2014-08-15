@@ -1,0 +1,23 @@
+{
+  "name": "AquaticBeastForce",
+  "version": "0.0.1",
+  "description": "AquaticBeastForce",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-filesize": "^0.0.6",
+    "gulp-htmlmin": "^0.1.3",
+    "gulp-uglify": "^0.3.1",
+    "gulp-zip": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thunraz/AquaticBeastForce.git"
+  },
+  "author": "Thunraz",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Thunraz/AquaticBeastForce/issues"
+  },
+  "homepage": "https://github.com/Thunraz/AquaticBeastForce"
+}
