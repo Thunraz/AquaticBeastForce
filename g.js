@@ -81,11 +81,11 @@ Player.prototype.update = function(controls, deltaT) {
     }
 
     if(controls.up) {
-        this.walk(40 * deltaT);
+        this.move(40 * deltaT);
     }
 
     if(controls.down) {
-        this.walk(-40 * deltaT);
+        this.move(-40 * deltaT);
     }
 
     if(this.animationTimer <= 0.0) {
@@ -97,7 +97,7 @@ Player.prototype.update = function(controls, deltaT) {
     this.animationTimer -= deltaT;
 };
 
-Player.prototype.walk = function(distance) {
+Player.prototype.move = function(distance) {
     var dx = Math.cos(this.direction) * distance;
     var dy = Math.sin(this.direction) * distance;
     this.x += dx;
