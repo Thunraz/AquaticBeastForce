@@ -87,14 +87,17 @@ Player.prototype.update = function(controls, deltaT) {
  * ****************************************************************
 */
 
-function Camera(canvas) {
+function Camera(canvas, scale) {
     this.ctx = canvas.getContext('2d');
     this.width = canvas.width;
     this.height = canvas.height;
+    this.scale = scale;
 }
 
 Camera.prototype.render = function(player) {
-    this.ctx.drawImage(player.bitmap.image, player.x, player.y, player.bitmap.width, player.bitmap.height);
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.ctx.imageSmoothingEnabled = false;
+    this.ctx.drawImage(player.bitmap.image, player.x * this.scale, player.y * this.scale, player.bitmap.width * this.scale, player.bitmap.height * this.scale);
 };
 
 /*
@@ -104,7 +107,7 @@ Camera.prototype.render = function(player) {
 var canvas = document.getElementById('g');
 var controls = new Controls();
 var player = new Player(5, 5);
-var camera = new Camera(canvas);
+var camera = new Camera(canvas, 2.0);
 
 var loop = new GameLoop();
 
