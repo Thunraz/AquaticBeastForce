@@ -144,15 +144,15 @@ Camera.prototype.draw = function(bitmap, xPos, yPos, rotation) {
 
     // Draw the image
     this.ctx.drawImage(
-        image,
-        currentFrame * 16,
+        bitmap.image,
+        bitmap.currentFrame * 16,
         0,
-        16,
-        16,
-        -8 * this.scale,
-        -8 * this.scale,
-        16 * this.scale,
-        16 * this.scale
+        bitmap.width,
+        bitmap.height,
+        -bitmap.width / 2 * this.scale,
+        -bitmap.height / 2 * this.scale,
+        bitmap.width * this.scale,
+        bitmap.height * this.scale
     );
 
     this.ctx.restore();
