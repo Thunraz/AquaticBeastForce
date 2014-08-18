@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aquatic Beast Force</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+
+                background-color: rgb(191, 175, 137);
+            }
+
+            div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
+            canvas {
+                margin-left: -245px;
+                margin-top: -221px;
+                background-color: #C5CCA1;
+                border: 10px solid rgb(175, 127, 112);
+                box-shadow: 10px 10px 0px 0px rgba(159, 93, 108, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <canvas id="g" width="480" height="432"></canvas>
+        </div>
+
+        <script src="lib/bitmap.js"></script>
+        <script src="lib/camera.js"></script>
+        <script src="lib/controls.js"></script>
+        <script src="lib/explosion.js"></script>
+        <script src="lib/gameLoop.js"></script>
+        <script src="lib/player.js"></script>
+        <script src="lib/projectile.js"></script>
+        <script src="lib/main.js"></script>
+    </body>
+</html>
