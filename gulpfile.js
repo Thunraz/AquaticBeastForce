@@ -3,10 +3,10 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     filesize = require('gulp-filesize'),
     zip = require('gulp-zip'),
-    htmlmin = require('gulp-htmlmin');
+    rimraf = require('gulp-rimraf');
 
 gulp.task('minify', function() {
-    gulp.src([
+    return gulp.src([
             'lib/bitmap.js',
             'lib/camera.js',
             'lib/controls.js',
@@ -24,14 +24,20 @@ gulp.task('minify', function() {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('zip', function() {
-    gulp.src(['g.js', 'index.html', 'assets/*.png'], { base: './' })
+gulp.task('zip', ['minify'], function() {
+    return gulp.src(['g.js', 'index.html', 'assets/*.png'], { base: './' })
         .pipe(zip('AquaticBeastForce.zip'))
         .pipe(filesize())
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('clean', ['zip'], function() {
+    gulp.src(['g.js'], { read: false })
+        .pipe(rimraf());
+});
+
 gulp.task('default', function() {
     gulp.start('minify');
     gulp.start('zip');
+    gulp.start('clean');
 });
