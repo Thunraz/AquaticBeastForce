@@ -1,4 +1,9 @@
 AquaticBeastForce
 =================
 
-Working title courtesy of http://videogamena.me/
+~~Working title courtesy of http://videogamena.me/~~
+
+A little game I made for the #js13kgames contest on http://js13kgames.com/.
+
+
+<sub><sup>Yes I know a Kraken has 8 arms.</sup></sub>
