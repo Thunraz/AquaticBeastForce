@@ -6,4 +6,4 @@ AquaticBeastForce
 A little game I made for the #js13kgames contest on http://js13kgames.com/.
 
 
-<sub><sup>Yes I know a Kraken has 8 arms.</sup></sub>
+<sub><sup>Yes I know a kraken has 8 arms.</sup></sub>
