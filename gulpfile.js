@@ -25,7 +25,7 @@ gulp.task('minify', function() {
 });
 
 gulp.task('zip', ['minify'], function() {
-    return gulp.src(['g.js', 'index.html', 'assets/*.png'], { base: './' })
+    return gulp.src(['g.js', 'index.html', 'assets/*.png', 'assets/*.mp3'], { base: './' })
         .pipe(zip('AquaticBeastForce.zip'))
         .pipe(filesize())
         .pipe(gulp.dest('dist'));
